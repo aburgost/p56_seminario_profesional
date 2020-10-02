@@ -8,12 +8,16 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(router);
 
 router.get('/carrera', function(req,res){
+    console.log(req.headers , req.headers['authorization'])
     res.send('Lista de carreras')
 });
 
 router.post('/carrera',function(req,res){
     console.log(req.body);
     console.log(req.query);
+    
+    res.status(201).send({tipo_error:0,mensaje_error:'',mensaje_exito:'Añadido exitosamente'});
+
 })
 
 app.use('/',express.static('public'));
