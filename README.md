@@ -1,2 +1,3 @@
-# p56_seminario_profesional
-Universidad Politécnica Salesiana Material del curso de MONGODB +NodeJS
+#Universidad Politecnica Salesiana
+## Seminario_profesional
+ Material del curso de MONGODB +NodeJS
