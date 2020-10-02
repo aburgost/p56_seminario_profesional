@@ -1,22 +1,22 @@
-const  express  =  require ( 'express' )
-const  bodyParser  =  require ( 'body-parser' )
- respuesta  constante =  require ( './network/response' )
+const express = require('express')
+const bodyParser = require('body-parser')
+const response = require('./network/response')
 
-const  config  =  require ( './config' )
-const  db  =  require ( './db' )
-const  router  =  require ( './network/routes' )
+const config = require('./config')
+const db = require('./db')
+const router = require('./network/routes')
 
-db (  config . dbUrl  )
+db( config.dbUrl )
 
-var  app  =  express ( )
-aplicación . utilizar (  bodyParser . json ( )  )
-aplicación . use (  bodyParser . urlencoded (  { extendido : falso }  )  )
-enrutador (  aplicación  )
+var app = express()
+app.use( bodyParser.json() )
+app.use( bodyParser.urlencoded( {extended:false} ) )
+router( app )
 
-aplicación . use (  config . publicRoute ,  express . static ( 'público' )  )
+app.use( config.publicRoute, express.static('public') )
 
-aplicación . escuchar (  config . puerto  )
-consola . log (  `La aplicación está escuchando en $ { config . host } : $ { config . port } $ { config . publicRoute } `  )
+app.listen( config.port )
+console.log( `La aplicación está escuchando en ${config.host}:${config.port}${config.publicRoute}` )
 //const app = express();
 
 //app.set('port',4000)

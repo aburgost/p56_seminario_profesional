@@ -1,15 +1,15 @@
-exportaciones . éxito  =  función ( req ,  res ,  mensaje ,  estado )  {
-    res . estado (  estado  ) . enviar (  {
-        error : '' , 
-        cuerpo : mensaje 
-    }  )
+exports.success = function(req, res, message, status) {
+    res.status( status ).send( {
+        error: '', 
+        body: message 
+    } )
 }
 
-exportaciones . error  =  función ( req ,  res ,  mensaje ,  estado )  {
-    consola . error (  `[Registro de errores] - $ { mensaje } `  )
+exports.error = function(req, res, message, status) {
+    console.error( `[Error log] - ${message}` )
     
-    res . estado (  estado  ) . enviar (  {
-        error : mensaje , 
-        cuerpo : '' 
-    }  )
+    res.status( status ).send( {
+        error: message, 
+        body: '' 
+    } )
 }
