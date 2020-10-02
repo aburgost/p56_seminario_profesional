@@ -15,17 +15,19 @@ const aumentarPeso =(persona)=>persona.peso+= INCREMENTAR_PESO
 
 const disminuyePeso =(persona)=>persona.peso+= DECREMENTAR_PESO
 
-const comeMucho =()=>Math.random()< 0.1
+const comeMucho =()=>Math.random()< 0.5
 
-const realizaDeporte =()=>Math.random()<0.8
+const realizaDeporte =()=>Math.random()<0.7
 
 console.log(`Al iniciar el año ${persona.nombres} pesa ${persona.peso}`);
 
 while(persona.peso>META){
 if (comeMucho()){
+    console.log("Aumenta el peso")
  aumentarPeso(persona);
 }
 if(realizaDeporte()){
+    console.log("Disminuye el peso")
 disminuyePeso(persona);
 }
 }
