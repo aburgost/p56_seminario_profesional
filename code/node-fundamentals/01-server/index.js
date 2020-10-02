@@ -1,30 +1,22 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const response = require('./network/response')
+const  express  =  require ( 'express' )
+const  bodyParser  =  require ( 'body-parser' )
+ respuesta  constante =  require ( './network/response' )
 
-const router = express.Router()
+const  config  =  require ( './config' )
+const  db  =  require ( './db' )
+const  router  =  require ( './network/routes' )
 
-var app = express()
-app.use( bodyParser.json() )
-app.use( bodyParser.urlencoded( {extended:false} ) )
-app.use( router )
+db (  config . dbUrl  )
 
-router.get('/carrera', function(req, res) {
-    response.success( req, res, 'Lista de Carreras de la UPS.', 200 )
-})
-router.post('/carrera', function(req, res) {
-    if (req.query.error == 'ok') {
-        response.error( req, res, 'Error al ingresar la Carrera.', 500 )        
-    } else {
-        response.success( req, res, 'Ingreso de Carrera exitoso.', 201 )        
-    }
-})
+var  app  =  express ( )
+aplicación . utilizar (  bodyParser . json ( )  )
+aplicación . use (  bodyParser . urlencoded (  { extendido : falso }  )  )
+enrutador (  aplicación  )
 
-app.use( '/', express.static('public') )
+aplicación . use (  config . publicRoute ,  express . static ( 'público' )  )
 
-app.listen( 5000 )
-console.log( 'La aplicación está escuchando en http://localhost:5000' )
-
+aplicación . escuchar (  config . puerto  )
+consola . log (  `La aplicación está escuchando en $ { config . host } : $ { config . port } $ { config . publicRoute } `  )
 //const app = express();
 
 //app.set('port',4000)
